@@ -4,13 +4,13 @@ from django.contrib.auth.models import PermissionsMixin
 from django.utils.translation import gettext_lazy as _
 
 from .manager import CustomUserManager
-from .validators import validate_anulujkredyr_email
+from .validators import validate_anulujkredyt_email
 
 # Create your models here.
 class CustomUser(AbstractBaseUser, PermissionsMixin):
     first_name = models.CharField(max_length=50)
-    second_name = models.CharField(max_length=50)
-    email = models.EmailField(_('email address'), unique=True, validators=[validate_anulujkredyr_email])
+    last_name = models.CharField(max_length=50)
+    email = models.EmailField(_('email address'), unique=True, validators=[validate_anulujkredyt_email])
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     perm = models.BooleanField(default=False)
