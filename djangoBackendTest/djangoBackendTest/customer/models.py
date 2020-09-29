@@ -9,9 +9,7 @@ class Customer(models.Model):
     second_name = models.CharField(max_length=50, validators=[])
     telephone = models.IntegerField(validators=[validate_phone_number])
     isCustomersWhoMadePurchase = models.BooleanField(default=False)
-    # purchase = models.CharField(max_length=30, default='', blank=True )
     email = models.EmailField()
-    ###
     CHOICES = (
         ('red', 'Red'),
         ('green', 'Green'),
@@ -30,7 +28,7 @@ class Customer(models.Model):
         if self.isCustomersWhoMadePurchase == True and self.purchase == 'none':
             raise ValidationError('Choose car color in "Purchase"')
         if self.isCustomersWhoMadePurchase == False and self.purchase != 'none':
-            raise ValidationError('Remember to check "IsCustomersWhoMadePurchase" when You picked car color')
+            raise ValidationError('Remember to check "IsCustomersWhoMadePurchase" if picked car color')
 
     class Meta:
         unique_together = ['first_name', 'second_name', 'email']

@@ -10,12 +10,3 @@ def validate_phone_number(value):
             _('%(value)s is not a phone number!!!'),
             params={'value': value},
         )
-
-
-# def validate_first_and_second_name(value):
-#     from .models import Customer
-#     if value == Customer.first_name:
-#         raise ValidationError(
-#             _('%(value)s is not a phone number!!!'),
-#             params={'value': value},
-#         )

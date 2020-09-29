@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'djangoBackendTest.customer',
     'rest_framework',
     'django_filters',
+    'rest_framework_swagger',
 ]
 
 MIDDLEWARE = [

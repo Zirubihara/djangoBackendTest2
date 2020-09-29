@@ -1,31 +1,10 @@
-import unittest
+from http import client
 
-from django.test import SimpleTestCase
-from django.urls import reverse, resolve
+from django.contrib.auth.models import User
+from requests.auth import HTTPBasicAuth
+from rest_framework.test import APIClient
 
-from .views import CustomerList
+from djangobackendtest.djangoBackendTest.djangoBackendTest.users.models import CustomUser
 
-#class TestStringMethods(unittest.TestCase):
-class TestStringMethods(SimpleTestCase):
-
-    def test_elo(self):
-        url = reverse('list')
-        print(resolve(url))
-        self.assertEquals(resolve(url).func, CustomerList)
-
-    def test_upper(self):
-        self.assertEqual('foo'.upper(), 'FOO')
-
-    def test_isupper(self):
-        self.assertTrue('FOO'.isupper())
-        self.assertFalse('Foo'.isupper())
-
-    def test_split(self):
-        s = 'hello world'
-        self.assertEqual(s.split(), ['hello', 'world'])
-        # check that s.split fails when the separator is not a string
-        with self.assertRaises(TypeError):
-            s.split(2)
-
-if __name__ == '__main__':
-    unittest.main()
+user = CustomUser.objects.get(email='kanek@anulujkredyt.pl')
+client = APIClient()
