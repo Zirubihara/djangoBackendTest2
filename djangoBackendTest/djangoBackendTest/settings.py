@@ -35,8 +35,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'djangoBackendTest.users',
-    'djangoBackendTest.customer',
+    
+    'users.apps.UsersConfig',
+    'customer.apps.CustomerConfig',
     'rest_framework',
     'django_filters',
 ]
